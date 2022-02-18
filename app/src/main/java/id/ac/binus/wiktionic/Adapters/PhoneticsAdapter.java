@@ -3,6 +3,7 @@ package id.ac.binus.wiktionic.Adapters;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,10 +41,11 @@ public class PhoneticsAdapter extends RecyclerView.Adapter<PhoneticsViewHolder> 
         holder.imageButton_audio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 MediaPlayer player = new MediaPlayer();
                 try{
                     player.setAudioStreamType(AudioManager.STREAM_MUSIC);
-                    player.setDataSource("https:" + phoneticsList.get(position).getAudio());
+                    player.setDataSource(phoneticsList.get(position).getAudio());
                     player.prepare();
                     player.start();
                 }catch (Exception e){

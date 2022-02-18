@@ -3,6 +3,7 @@ package id.ac.binus.wiktionic.Adapters;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,6 +33,7 @@ public class DefinitionsAdapter extends RecyclerView.Adapter<DefinitionsViewHold
     @Override
     public void onBindViewHolder(DefinitionsViewHolder holder, int position) {
         holder.textView_definition.setText("Definitions: " + definitionsList.get(position).getDefinitions());
+        Toast.makeText(context, definitionsList.get(position).getDefinitions(), Toast.LENGTH_SHORT).show();
         holder.textView_example.setText("Example: " + definitionsList.get(position).getExample());
         StringBuilder synonyms = new StringBuilder();
         StringBuilder antonyms = new StringBuilder();
